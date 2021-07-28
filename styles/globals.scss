@@ -1,0 +1,71 @@
+$background: #222831;
+$lighter-bg: #30475e;
+$primary: #f05454;
+$primary-text: #e8e8e8;
+
+$medium-screen: 900px;
+$small-screen: 600px;
+$tiny-screen: 450px;
+
+$max-width: 1000px;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+}
+body {
+	background-color: $background;
+}
+button {
+	border: none;
+	outline: none;
+	background: $primary;
+}
+a {
+	text-decoration: none;
+}
+
+.large {
+	font-size: 70px;
+}
+.big {
+	font-size: 25px;
+}
+.regular {
+	font-size: 19px;
+}
+.small {
+	font-size: 16px;
+}
+
+@media screen and (max-width: $medium-screen) {
+	.large {
+		font-size: 50px;
+	}
+	.big {
+		font-size: 22px;
+	}
+	.regular {
+		font-size: 18px;
+	}
+	.small {
+		font-size: 16px;
+	}
+}
+@media screen and (max-width: $small-screen) {
+	.large {
+		font-size: 40px;
+	}
+	.big {
+		font-size: 20px;
+	}
+	.regular {
+		font-size: 18px;
+	}
+	.small {
+		font-size: 16px;
+	}
+}
