@@ -2,70 +2,67 @@ $background: #222831;
 $lighter-bg: #30475e;
 $primary: #f05454;
 $primary-text: #e8e8e8;
+$secondary-text: #788796;
 
 $medium-screen: 900px;
 $small-screen: 600px;
 $tiny-screen: 450px;
 
-$max-width: 1000px;
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+$max-width: 1200px;
+@import url("https://fonts.googleapis.com/css2?family=Scada:wght@400;700&display=swap");
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: "Roboto", sans-serif;
+	font-family: "Scada", sans-serif;
+	color: $primary-text;
 }
 body {
 	background-color: $background;
+	overflow-x: hidden;
 }
 button {
 	border: none;
 	outline: none;
 	background: $primary;
+	cursor: pointer;
+	transform: translateX(0);
+	transition: 0.2s;
+	&:hover {
+		transform: translateX(0.25rem);
+	}
+	&:active {
+		transform: scale(0.9);
+	}
+	path {
+		color: $background;
+	}
 }
 a {
 	text-decoration: none;
 }
 
 .large {
-	font-size: 70px;
+	font-size: 60px;
 }
 .big {
-	font-size: 25px;
+	font-size: 22px;
 }
 .regular {
-	font-size: 19px;
+	font-size: 18px;
 }
 .small {
-	font-size: 16px;
+	font-size: 15px;
 }
 
 @media screen and (max-width: $medium-screen) {
 	.large {
 		font-size: 50px;
 	}
-	.big {
-		font-size: 22px;
-	}
-	.regular {
-		font-size: 18px;
-	}
-	.small {
-		font-size: 16px;
-	}
 }
 @media screen and (max-width: $small-screen) {
 	.large {
 		font-size: 40px;
-	}
-	.big {
-		font-size: 20px;
-	}
-	.regular {
-		font-size: 18px;
-	}
-	.small {
-		font-size: 16px;
 	}
 }
