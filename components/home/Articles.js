@@ -1,11 +1,23 @@
-import { useState } from "react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 /* eslint-disable @next/next/no-img-element */
 export default function Articles({ categories, articles }) {
 	const [activeIndex, setIndex] = useState(0);
-	const activate = (index) => setIndex(index);
+	const [activeArticles, setArticles] = useState(articles);
+
+	const activate = (index, catName) => {
+		setIndex(index);
+		let newArt = articles.filter(
+			(el, idx) => el.fields.category.fields.name == catName
+		);
+		setArticles(newArt);
+	};
+	useEffect(() => {
+		activate(0, categories[0].fields.name);
+	}, []);
 	return (
-		<div className="articles">
+		<div className="articles-wrapper" id="articles">
 			<div className="title large">ARTICLES</div>
 			<div className="categories">
 				{categories.length > 0
@@ -13,21 +25,37 @@ export default function Articles({ categories, articles }) {
 							<Category
 								data={el}
 								key={idx}
-								activate={() => activate(idx)}
+								activate={() => activate(idx, el.fields.name)}
 								active={activeIndex == idx}
 							/>
 					  ))
 					: null}
 			</div>
 			<div className="articles">
-				{articles.length > 0 &&
-					articles.map((el, idx) => <Article data={el} key={idx} />)}
+				{activeArticles.length > 0 &&
+					activeArticles.map((el, idx) => <Article data={el} key={idx} />)}
 			</div>
 		</div>
 	);
 }
 
-function Article({ data }) {}
+function Article({ data }) {
+	const { fields } = data;
+	const { shortDescription, title, slug, featuredImage } = fields;
+	return (
+		<article className="article">
+			<div className="details">
+				<Link href={`/${slug}`}>
+					<a>
+						<h2 className="big title">{title}</h2>
+					</a>
+				</Link>
+				<p className="small short-description">{shortDescription}</p>
+			</div>
+			<img className="image" src={featuredImage.fields.file.url} alt={title} />
+		</article>
+	);
+}
 
 function Category({ data, activate, active }) {
 	const { fields } = data;

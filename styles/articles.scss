@@ -1,0 +1,111 @@
+.nav-wrapper {
+	width: 100%;
+	position: absolute;
+	background-color: rgba($color: #000000, $alpha: 0.4);
+	backdrop-filter: blur(5px);
+	margin: 0 auto;
+}
+.featured {
+	width: 100%;
+	height: 80vh;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+.article {
+	background-color: #37404e;
+	max-width: 950px;
+	width: 100%;
+	margin: 0 auto;
+	transform: translateY(-10%);
+	border-radius: 20px;
+	padding: 3rem;
+	@media screen and (max-width: $small-screen) {
+		padding: 3rem 1.5rem;
+	}
+	.title,
+	.short-description {
+		margin: 1rem 0;
+	}
+	.blog {
+		p {
+			color: $secondary-text !important;
+		}
+		a,
+		i {
+			color: rgb(119, 167, 240);
+		}
+		line-height: 185%;
+	}
+	@media screen and (max-width: $small-screen) {
+		transform: translateY(0);
+	}
+}
+.related-articles {
+	max-width: $max-width;
+	width: 100%;
+	margin: 2rem auto;
+	.article-list {
+		display: flex;
+		margin: 3.5rem;
+		justify-content: center;
+		align-items: center;
+		padding: 1.5rem;
+		@media screen and (max-width: $small-screen) {
+			margin: 3.5rem 0rem;
+		}
+		.related-article {
+			min-width: 250px;
+			width: 300px;
+			min-height: 380px;
+			position: relative;
+			margin: 1.5rem;
+			border-radius: 15px;
+			overflow: hidden;
+			@media screen and (max-width: $small-screen) {
+				margin: 1.5rem 0rem;
+			}
+			@media screen and (max-width: $tiny-screen) {
+				min-width: 250px;
+				width: 250px;
+			}
+			.details {
+				padding: 1.5rem;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				@media screen and (max-width: $tiny-screen) {
+					padding: 0.75rem;
+				}
+			}
+			img {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				filter: brightness(0.3) blur(5px);
+				object-fit: cover;
+				z-index: -99;
+			}
+			.title {
+				margin: 1rem 0;
+				font-weight: bold;
+				transition: 0.2s;
+				&:hover {
+					color: $primary;
+				}
+			}
+			.short-description {
+				line-height: 165%;
+				color: $secondary-text;
+			}
+		}
+		@media screen and (max-width: $small-screen) {
+			flex-direction: column;
+		}
+	}
+}

@@ -4,7 +4,7 @@ import CTA from "./CTA";
 
 export default function Events({ events }) {
 	return (
-		<div className="wrapper">
+		<div className="wrapper" id="events">
 			<img src="/bgwave.svg" className="wave" alt="wavy background" />
 			<div className="events-wrapper">
 				<h2 className="title large">PAST EVENTS</h2>

@@ -1,4 +1,120 @@
 @import "./globals.scss";
+
+.nav {
+	display: flex;
+	justify-content: space-between;
+	max-width: $max-width;
+	margin: 0 auto;
+	align-items: center;
+	width: 100%;
+	padding: 1rem 0.75rem;
+	.menu {
+		display: flex;
+		align-items: center;
+		a {
+			padding: 0.5rem 1rem;
+			text-align: right;
+			color: $primary-text;
+			filter: brightness(1);
+			transition: 0.2s ease-in;
+			font-size: 16px;
+			&:nth-of-type(3) {
+				padding-right: 0;
+			}
+			&:hover {
+				filter: brightness(0.75);
+			}
+		}
+	}
+}
+
+.cta {
+	.input-box {
+		padding: 0.3rem 0.25rem;
+		border-radius: 60px;
+		height: 60px;
+		width: 350px;
+		background-color: #11161d;
+		display: flex;
+		input {
+			outline: none;
+			border: none;
+			background-color: transparent;
+			flex-grow: 1;
+			margin: 0 1.5rem;
+		}
+		.button {
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+	.info {
+		color: #5b697a;
+		padding: 0.25rem 1.5rem;
+	}
+
+	@media screen and (max-width: $tiny-screen) {
+		width: 100%;
+		.input-box {
+			width: 100%;
+			input {
+				font-size: 16px;
+				margin: 0;
+				margin-left: 1rem;
+			}
+		}
+	}
+}
 .home {
 	@import "./home.scss";
+}
+
+.article-page {
+	@import "./articles.scss";
+}
+
+.join {
+	width: 100%;
+	min-height: 50vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: $max-width;
+	padding: 2.5rem 1.5rem;
+	position: relative;
+	margin: 3rem auto;
+	.title {
+		margin: 2rem 0;
+	}
+	.sub-text {
+		margin: 0.5rem 0;
+		color: $secondary-text;
+	}
+	.cta {
+		margin-top: 3rem;
+	}
+}
+.footer {
+	justify-content: space-between;
+	& > div {
+		width: 250px;
+	}
+	.rights {
+		color: $secondary-text;
+		text-align: center;
+	}
+	@media screen and (max-width: $small-screen) {
+		flex-direction: column;
+		& > div {
+			width: auto;
+		}
+		.menu {
+			display: none;
+		}
+	}
 }
