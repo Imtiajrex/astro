@@ -8,8 +8,8 @@ import Head from "next/head";
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
 import Link from "next/link";
 export default function articlepage({ post, relatedArticles }) {
-	const { fields } = post;
-	const { title, shortDescription, featuredImage, article, category } = fields;
+	const { title, shortDescription, featuredImage, article, category } =
+		post.fields;
 	const blog = documentToHtmlString(article);
 	return (
 		<div className="article-page">
@@ -33,8 +33,8 @@ export default function articlepage({ post, relatedArticles }) {
 				<div className="title large">Somethings you might like</div>
 				<div className="article-list">
 					{relatedArticles.map((element, index) => {
-						const { fields } = element;
-						const { title, shortDescription, featuredImage, slug } = fields;
+						const { title, shortDescription, featuredImage, slug } =
+							element.fields;
 						return (
 							<div className="related-article" key={index}>
 								<img src={featuredImage.fields.file.url} alt={title} />
@@ -68,7 +68,7 @@ export async function getStaticPaths() {
 
 	return {
 		paths,
-		fallback: true,
+		fallback: false,
 	};
 }
 
